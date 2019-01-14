@@ -1,7 +1,7 @@
 FROM ubuntu:latest as builder
 
-RUN apt-get update
-RUN apt-get install --assume-yes apt-utils
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install --assume-yes apt-utils
 RUN apt-get install curl -y
 RUN curl -L -o /tmp/go.sh https://install.direct/go.sh
 RUN chmod +x /tmp/go.sh
